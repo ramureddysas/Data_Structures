@@ -242,6 +242,7 @@ asl1 <- asl %>%
  dim(adlb1)
  dplyr::filter(adlb1 , AVAL==38)
  adlb1
+ 
  output_dataset <- adlb1 %>%
    dplyr::arrange(LBTESTCD) %>% 
    dplyr::mutate(STUDYID = NULL) %>%
