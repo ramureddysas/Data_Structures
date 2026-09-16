@@ -245,11 +245,11 @@ asl1 <- asl %>%
  output_dataset <- adlb1 %>%
    dplyr::arrange(LBTESTCD) %>% 
    dplyr::mutate(STUDYID = NULL) %>%
-   dplyr::filter(PARAMCD == c("AST","BASO"))%>%
+   dplyr::filter(PARAMCD %in% c("AST","BASO"))%>%
    dplyr::rename(TRT=TRT01A)%>%
    dplyr::select(2:5)%>%
-   dplyr::group_by(PARAMCD)%>%z
- base::mean(AVAL)
+   dplyr::group_by(PARAMCD)%>%
+ dplyr::summarise(mean_val=base::mean(AVAL,na.rm=TRUE))
  output_dataset
  
  
